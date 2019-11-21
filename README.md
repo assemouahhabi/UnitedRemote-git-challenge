@@ -32,10 +32,12 @@ npm start
      - Number of issues for the repo.
      - Username and avatar of the owner.
      - keep scrolling and new results should appear (pagination).
-  ---
+
   
 #### Libraries:
 - "bootstrap": Responsiveness of the app .
 - "axios":  Fetch data from api.
+
+---
 
 *Still working on the project*
