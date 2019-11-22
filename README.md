@@ -7,7 +7,7 @@ The task is to implement a small webapp that will list the most starred Github r
 Install the environement:
 >on your cmd tape:
 ```
-git clone https://github.com/assemouahhabi/front-end_coding_challenge-.git
+git clone https://github.com/assemouahhabi/UnitedRemote-git-challenge
 ```
 ```
 cd front-end_coding_challenge
