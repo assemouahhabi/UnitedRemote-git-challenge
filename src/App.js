@@ -3,7 +3,6 @@ import "./App.css";
 import List from "./components/List";
 import Axios from "axios";
 import moment from "moment";
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +10,9 @@ class App extends Component {
       list: [],
       loading: true,
       url: "",
-      page: 0
+      page: 0,
+      fetchInProgress: false,
+      error: false
     };
     this.handleScroll = this.handleScroll.bind(this);
   }
@@ -73,11 +74,14 @@ class App extends Component {
         var info = response.data.items;
         this.setState({
           list: this.state.list.concat([...info]),
-          loading: false
+          fetchInProgress: false
         });
       })
       .catch(error => {
         console.log(error);
+        this.setState({
+          error: true
+        });
       });
   }
   fetchGithub() {
@@ -92,6 +96,9 @@ class App extends Component {
       })
       .catch(error => {
         console.log(error);
+        this.setState({
+          error: true
+        });
       });
   }
   handleScroll = () => {
@@ -111,6 +118,9 @@ class App extends Component {
     const windowBottom = windowHeight + window.pageYOffset;
     if (windowBottom >= docHeight) {
       this.fetchAnotherGithub();
+      this.setState({
+        fetchInProgress: true
+      });
     } else {
       console.log("bottom not reached");
     }
@@ -119,11 +129,31 @@ class App extends Component {
     let list = this.state.list;
     return (
       <div>
-        <List
-          loading={this.state.loading}
-          list={list}
-          onScroll={this.handleScroll}
-        />
+        <div className="card-header bg-dark" id="title">
+          The most stared repositories of this month
+        </div>
+        <div className="card-body">
+          <List
+            loading={this.state.loading}
+            list={list}
+            onScroll={this.handleScroll}
+          />
+        </div>
+
+        <div
+          className="card-footer bg-dark"
+          style={{ textAlign: "center", fontSize:"20px", color:"white" }}
+        >
+            {this.state.fetchInProgress ? (
+              this.state.error ? (
+                <i className="fa fa-exclamation-circle" />
+              ) : (
+                <i className="fa fa-spinner fa-spin" />
+              )
+            ) : (
+              <i className="fa fa fa-check-circle	" />
+            )}
+        </div>
       </div>
     );
   }
