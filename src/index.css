@@ -14,12 +14,9 @@ code {
 .card {
   overflow: hidden;
 }
-#title {
-  size: 50px;
-  color: white;
-  text-align: center;
-}
+
 #first-spinner {
   text-align: center;
   size: auto;
 }
+

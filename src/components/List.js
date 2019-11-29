@@ -7,9 +7,9 @@ class List extends Component {
       <div className="card">
         <ul className="list-group list-group-flush">
           {this.props.loading ? (
-            <div style={{ fontSize: "150px", textAlign: "center" }}>
+            <div style={{ fontSize: "150px", height:"562px", textAlign:"center"}}>
               {" "}
-              <i className="fa fa-spinner fa-spin" />
+              <i style={{marginTop: "200px"}}className="fa fa-spinner fa-spin" />
             </div>
           ) : (
             <li className="list-group-item">

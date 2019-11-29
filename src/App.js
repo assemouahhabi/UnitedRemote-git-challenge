@@ -130,7 +130,7 @@ class App extends Component {
     return (
       <div>
         <div className="card-header bg-dark" id="title">
-          The most stared repositories of this month
+          <h2>The most stared repositories of this month</h2>
         </div>
         <div className="card-body">
           <List
