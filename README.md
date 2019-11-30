@@ -5,32 +5,18 @@ The task is to implement a small webapp that will list the most starred Github r
 
 #### Instructions to run the project:
 Install the environement:
-<<<<<<< HEAD
 >on your cmd tape:
-=======
->on your cmd, type:
->>>>>>> CurrentChanges
 ```
 git clone https://github.com/assemouahhabi/UnitedRemote-git-challenge
 ```
 ```
-<<<<<<< HEAD
 cd front-end_coding_challenge
 ```
 ```
-<<<<<<< HEAD
-=======
->>>>>>> 6412ddbdbe1570ffbff8ef555a30e933e5393970
 npm install 
 ```
 
 Start project : 
-=======
-npm install
-```
-
-Start project :
->>>>>>> CurrentChanges
 >Run the project
 ```
 npm start
@@ -47,15 +33,10 @@ npm start
      - Username and avatar of the owner.
      - keep scrolling and new results should appear (pagination).
 
-<<<<<<< HEAD
   
-=======
-
->>>>>>> CurrentChanges
 #### Libraries:
-- "bootstrap": Responsiveness of the app.
+- "bootstrap": Responsiveness of the app .
 - "axios":  Fetch data from api.
-- "moment":  Parse, validate, manipulate, and display dates in javascript..
 
 ---
 
