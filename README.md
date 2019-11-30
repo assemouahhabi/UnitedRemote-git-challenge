@@ -37,7 +37,7 @@ npm start
 #### Libraries:
 - "bootstrap": Responsiveness of the app .
 - "axios":  Fetch data from api.
+- "moment": Parse, validate, manipulate, and display dates in javascript.
 
 ---
-
-*Still working on the project*
+*Closed*
