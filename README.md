@@ -10,9 +10,6 @@ Install the environement:
 git clone https://github.com/assemouahhabi/UnitedRemote-git-challenge
 ```
 ```
-cd front-end_coding_challenge
-```
-```
 npm install 
 ```
 
@@ -35,8 +32,9 @@ npm start
 
   
 #### Libraries:
-- "bootstrap": Responsiveness of the app .
+- "bootstrap": Responsiveness of the app.
 - "axios":  Fetch data from api.
+- "moment":  Parse, validate, manipulate, and display dates in javascript..
 
 ---
 
