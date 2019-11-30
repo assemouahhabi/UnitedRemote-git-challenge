@@ -15,7 +15,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+<<<<<<< HEAD
     "eject": "react-scripts eject"
+=======
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write **/*.js"
+>>>>>>> CurrentChanges
   },
   "eslintConfig": {
     "extends": "react-app"

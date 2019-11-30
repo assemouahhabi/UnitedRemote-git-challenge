@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> CurrentChanges
 .App {
   text-align: center;
 }
@@ -20,8 +24,13 @@
 .App-link {
   color: #09d3ac;
 }
+<<<<<<< HEAD
 #title {
   font-family: "Dosis", sans-serif;
+=======
+#title{
+  font-family: 'Dosis', sans-serif;
+>>>>>>> CurrentChanges
   text-align: center;
   height: 65px;
   color: white;
