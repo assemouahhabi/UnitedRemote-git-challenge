@@ -5,7 +5,7 @@ The task is to implement a small webapp that will list the most starred Github r
 
 #### Instructions to run the project:
 Install the environement:
->on your cmd tape:
+>on your cmd, type:
 ```
 git clone https://github.com/assemouahhabi/UnitedRemote-git-challenge
 ```
@@ -13,10 +13,10 @@ git clone https://github.com/assemouahhabi/UnitedRemote-git-challenge
 cd front-end_coding_challenge
 ```
 ```
-npm install 
+npm install
 ```
 
-Start project : 
+Start project :
 >Run the project
 ```
 npm start
@@ -33,7 +33,7 @@ npm start
      - Username and avatar of the owner.
      - keep scrolling and new results should appear (pagination).
 
-  
+
 #### Libraries:
 - "bootstrap": Responsiveness of the app .
 - "axios":  Fetch data from api.
