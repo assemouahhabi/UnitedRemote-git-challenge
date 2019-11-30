@@ -20,3 +20,9 @@
 .App-link {
   color: #09d3ac;
 }
+#title {
+  font-family: "Dosis", sans-serif;
+  text-align: center;
+  height: 65px;
+  color: white;
+}

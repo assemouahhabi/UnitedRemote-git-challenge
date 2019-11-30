@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
-import List from "./components/List";
+import ReposList from "./components/ReposList";
 import Axios from "axios";
 import moment from "moment";
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -11,24 +10,30 @@ class App extends Component {
       list: [],
       loading: true,
       url: "",
-      page: 0
+      page: 0,
+      fetchInProgress: false,
+      error: false
     };
     this.handleScroll = this.handleScroll.bind(this);
   }
+
   componentDidMount() {
     this.fetchGithub();
     this.fetchAnotherGithub();
     window.addEventListener("scroll", this.handleScroll, true);
   }
+
   componentWillMount() {
     this.getUrl();
     window.removeEventListener("scroll", this.handleScroll);
   }
+
   increment() {
     this.setState({
       page: this.state.page + 1
     });
   }
+
   getDate() {
     let currentDate = moment().format("YYYY-MM-DD");
     let startDate = moment()
@@ -36,6 +41,7 @@ class App extends Component {
       .format("YYYY-MM-DD");
     return [startDate, currentDate];
   }
+
   getUrl() {
     let tmpDate = this.getDate();
     let startDate = tmpDate[0];
@@ -49,6 +55,7 @@ class App extends Component {
         "&sort=stars&order=desc&page=0"
     });
   }
+
   getOtherUrl() {
     this.increment();
     let page = this.state.page;
@@ -65,6 +72,7 @@ class App extends Component {
         page
     });
   }
+
   fetchAnotherGithub() {
     this.getOtherUrl();
     let url = this.state.url;
@@ -73,13 +81,17 @@ class App extends Component {
         var info = response.data.items;
         this.setState({
           list: this.state.list.concat([...info]),
-          loading: false
+          fetchInProgress: false
         });
       })
       .catch(error => {
         console.log(error);
+        this.setState({
+          error: true
+        });
       });
   }
+
   fetchGithub() {
     let url = this.state.url;
     Axios.get(url)
@@ -92,8 +104,12 @@ class App extends Component {
       })
       .catch(error => {
         console.log(error);
+        this.setState({
+          error: true
+        });
       });
   }
+
   handleScroll = () => {
     const windowHeight =
       "innerHeight" in window
@@ -111,20 +127,42 @@ class App extends Component {
     const windowBottom = windowHeight + window.pageYOffset;
     if (windowBottom >= docHeight) {
       this.fetchAnotherGithub();
-    } else {
-      console.log("bottom not reached");
+      this.setState({
+        fetchInProgress: true
+      });
     }
   };
+
   render() {
-    let list = this.state.list;
-    console.log(list);
+    const { loading, list, error, fetchInProgress } = this.state;
+
     return (
       <div>
-        <List
-          loading={this.state.loading}
-          list={list}
-          onScroll={this.handleScroll}
-        />
+        <div className="card-header bg-dark" id="title">
+          <h2>The most stared repositories of this month</h2>
+        </div>
+        <div className="card-body">
+          <ReposList
+            loading={loading}
+            list={list}
+            onScroll={this.handleScroll}
+          />
+        </div>
+
+        <div
+          className="card-footer bg-dark"
+          style={{ textAlign: "center", fontSize: "20px", color: "white" }}
+        >
+          {fetchInProgress ? (
+            error ? (
+              <i className="fa fa-exclamation-circle" />
+            ) : (
+              <i className="fa fa-spinner fa-spin" />
+            )
+          ) : (
+            <i className="fa fa-spinner fa-spin" />
+          )}
+        </div>
       </div>
     );
   }

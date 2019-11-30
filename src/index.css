@@ -11,8 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-div.loader {
-  font-size: 100px;
+.card {
+  overflow: hidden;
 }
-#description {
+
+#first-spinner {
+  text-align: center;
+  size: auto;
 }
