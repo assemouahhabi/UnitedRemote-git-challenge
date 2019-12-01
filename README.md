@@ -10,7 +10,7 @@ Install the environement:
 git clone https://github.com/assemouahhabi/UnitedRemote-git-challenge
 ```
 ```
-cd front-end_coding_challenge
+cd UnitedRemote-git-challenge
 ```
 ```
 npm install 
