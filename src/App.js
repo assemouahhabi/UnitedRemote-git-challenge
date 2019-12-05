@@ -27,13 +27,15 @@ class App extends Component {
     this.getUrl();
     window.removeEventListener("scroll", this.handleScroll);
   }
-
+  
+  // function to increment pages on each loading
   increment() {
     this.setState({
       page: this.state.page + 1
     });
   }
 
+  //function that get the last 30 days from the current date:
   getDate() {
     let currentDate = moment().format("YYYY-MM-DD");
     let startDate = moment()
@@ -42,6 +44,7 @@ class App extends Component {
     return [startDate, currentDate];
   }
 
+  //functions dispatching URL in the state
   getUrl() {
     let tmpDate = this.getDate();
     let startDate = tmpDate[0];
@@ -73,6 +76,7 @@ class App extends Component {
     });
   }
 
+  //functions for fetching URLs
   fetchAnotherGithub() {
     this.getOtherUrl();
     let url = this.state.url;
@@ -110,6 +114,7 @@ class App extends Component {
       });
   }
 
+  //function which detect the end of page on crolling and call the fetch function if bottom reached
   handleScroll = () => {
     const windowHeight =
       "innerHeight" in window
